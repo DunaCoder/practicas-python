@@ -3,11 +3,11 @@ Ideas para proyectos en Python:
 Para principiantes:
 
 Juegos:
-Adivina el número
-Piedra, papel o tijera
-Ahorcado
+Adivina el número oculto
+-Piedra, papel o tijera
 Simulador de lanzamiento de dados
 Juego de la serpiente
+
 Herramientas:
 Calculadora básica
 Convertidor de unidades
@@ -42,6 +42,7 @@ Inteligencia artificial:
 Chatbot
 Reconocimiento de voz
 Visión artificial
+
 Desarrollo de aplicaciones móviles:
 Aplicación para Android con Kivy
 Aplicación para iOS con Swift
@@ -61,15 +62,6 @@ Investiga cómo puedes hacerlo con Python
 ¡Empieza a programar!
 Recursos para encontrar ideas:
 
-Lista de proyectos de Python:
-https://github.com/karan/Projects
-https://www.freecodecamp.org/espanol/news/25-proyectos-en-python-para-principiantes/
-Foros de Python:
-<se quitó una URL no válida>
-https://stackoverflow.com/questions/tagged/python
-Comunidades de Python en línea:
-https://www.meetup.com/topics/python/
-https://www.reddit.com/r/Python/
 Consejos para elegir un proyecto:
 
 Elige un proyecto que te interese:
