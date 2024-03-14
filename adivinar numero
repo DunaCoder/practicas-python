@@ -1,42 +1,69 @@
 import random
+import pyttsx3
+
+engine = pyttsx3.init()
+
+def talk(text):
+  engine.say(text)
+  engine.runAndWait()
 
 def generar_saludo():
-    saludos = ["¡Hola humano! ", "¡Vaya, vaya! ¿Te atreves a desafiarme? "]
-    return random.choice(saludos)
-
+  saludos = ["¡Oh, valiente mortal! Has caído en mi trampa... un bucle infinito del que solo tú puedes escapar. Adivina el número en mi mente y libera tu alma de este tormento.",
+             "¡Ja ja ja! Has sucumbido a mi malvado plan: un bucle numérico sin salida. Pero no temas, pequeño humano, aún hay esperanza. Si adivinas el número que ronda por mi mente, te concederé la dulce libertad.",
+             "¡Tu ingenio será puesto a prueba! Te has adentrado en mi laberinto numérico, un desafío solo apto para las mentes más brillantes. Demuestra tu valía y libera tu espíritu de este enigma.",
+             "En un bucle estás atrapado, por mi mente has sido cazado. Un número secreto yo guardo, descúbrelo y serás liberado. Tu astucia será la clave, para salir de este trance grave.",
+             "¡Bienvenidos a mi tormento! Un bucle infinito donde solo los más afortunados (o inteligentes) logran escapar. Si deseas salir con vida, adivina el número que ronda por mi retorcida mente."]
+ 
+  frase_aleatoria = random.choice(saludos)
+  talk(frase_aleatoria)
+  return frase_aleatoria
 
 def generar_frases():
     frases_bruja = [
-     "Vaya, vaya, parece que estás teniendo dificultades.",
-     "Que triste, jajaja.",
-     "Hmm, tal vez deberías intentar usar tu cerebro.",
-     "¿Estás seguro de que eres lo suficientemente inteligente para esto?",
-     "Jajaja, esto es demasiado divertido!",
-]
-    return random.choice(frases_bruja)
+        "Vaya, vaya, parece que estás teniendo dificultades.",
+        "Que triste, jajaja.",
+        "Hmm, tal vez deberías intentar usar tu cerebro.",
+        "¿Estás seguro de que eres lo suficientemente inteligente para esto?",
+        "Jajaja, esto es demasiado divertido!",
+    ]
+
+    dialogos = random.choice(frases_bruja)
+    talk(dialogos)
+    return dialogos
 
 
 
 def generar_derrota():
-    frases_derrota = [
-       "QUE!!?? haz salido del bulcle!!! NOOOO!!! *explota y muere*",
-       "¡No puede ser! Has logrado salir del bucle... ¿Cómo es posible?",
-        "¡Imposible! Tu astucia ha superado mis expectativas. Me has vencido.",
-        "¡Maldición! Tus habilidades son formidables. Has conseguido escapar.",
-        "¡Eres un ser excepcional! Tu mente brillante ha triunfado.",
-        "¡Felicidades! Has logrado burlar mi ingenio y salir victorioso.",
-        "¡Te has ganado mi respeto! Tu tenacidad y perspicacia te han llevado a la victoria."
-       
-]
-    return random.choice(frases_derrota)
+  frases_derrota = [
+    "QUE!!?? haz salido del bulcle!!! NOOOO!!! *explota y muere*",
+    "¡No puede ser! Has logrado salir del bucle... ¿Cómo es posible?",
+    "¡Imposible! Tu astucia ha superado mis expectativas. Me has vencido.",
+    "¡Maldición! Tus habilidades son formidables. Has conseguido escapar.",
+    "¡Eres un ser excepcional! Tu mente brillante ha triunfado.",
+    "¡Felicidades! Has logrado burlar mi ingenio y salir victorioso.",
+    "¡Te has ganado mi respeto! Tu tenacidad y perspicacia te han llevado a la victoria."
+  ]
+  derrotas = random.choice(frases_derrota)
+  talk(derrotas)
+  return derrotas
 
 secreto = range(1, 10)
+generar_saludo()
+
 while True:
-  numero = int(input(generar_saludo() + "haz caido en mi bucle jajaja ahora\ndeberas saber en que numero estoy pensando si deseas ser libre!!!: "))
-  bruja = random.choice(secreto)
-  if numero == bruja:
-    print(generar_derrota())
-    False
-    break
-  else:
-    numero = int(input(generar_frases()+ " ingresa un numero: "))
+    try:
+        numero = int(input("ingresa un numero del 1 al 10: "))
+    except ValueError:
+        talk("¡Error! Debes ingresar un número del 1 al 10. no seas imbecil")
+        continue
+    else:
+        if numero > 10:
+            talk("¡El número debe estar entre 1 y 10! ¡Vuelve a intentarlo!")
+            continue
+        bruja = random.choice(secreto)
+        if numero == bruja:
+            generar_derrota()
+            break
+        else:
+            generar_frases()
+            print("¡Intenta de nuevo!")
